@@ -1,0 +1,29 @@
+musique_index:
+    path:     /
+    defaults: { _controller: "MediaBundle:Musique:index" }
+    methods:  GET
+
+musique_show:
+    path:     /{id}/show
+    defaults: { _controller: "MediaBundle:Musique:show" }
+    methods:  [GET, POST]
+
+musique_new:
+    path:     /new
+    defaults: { _controller: "MediaBundle:Musique:new" }
+    methods:  [GET, POST]
+
+musique_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MediaBundle:Musique:edit" }
+    methods:  [GET, POST]
+
+musique_delete:
+    path:     /{id}/album/delete
+    defaults: { _controller: "MediaBundle:Musique:deleteAlbum" }
+    methods:  [GET, POST]
+
+avis_delete:
+    path:     /{id}/{id_album}/avis/delete
+    defaults: { _controller: "MediaBundle:Musique:deleteAvis" }
+    methods:  [GET, POST]

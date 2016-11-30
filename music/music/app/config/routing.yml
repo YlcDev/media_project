@@ -1,0 +1,4 @@
+media:
+    resource: "@MediaBundle/Resources/config/routing.yml"
+    prefix:   /
+

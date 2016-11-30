@@ -1,0 +1,24 @@
+MediaBundle\Entity\Commentaire:
+    type: entity
+    table: null
+    repositoryClass: MediaBundle\Repository\CommentaireRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        utilisateur:
+            type: string
+            length: 255
+        commentaire:
+            type: text
+            length: 255
+    lifecycleCallbacks: {  }
+    manyToOne:
+        album:
+            targetEntity: MediaBundle\Entity\Album
+            inversedBy: id
+            joinColumn:
+                onDelete: CASCADE

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="center-align">Ajouter un album</h1>
+
+        <div class="row">
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="input-field col m6 s12">
+                    {{ form_label(form.titre) }}
+                    {{ form_widget(form.titre) }}
+                    {{ form_errors(form.titre) }}
+                </div>
+                <div class="input-field col m6 s12">
+                    {{ form_label(form.artiste) }}
+                    {{ form_widget(form.artiste) }}
+                    {{ form_errors(form.artiste) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    {{ form_widget(form.genre) }}
+                    {{ form_errors(form.genre) }}
+                </div>
+                <div class="input-field col s6">
+                    {{ form_widget(form.support) }}
+                    {{ form_errors(form.support) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Photo de couverture</span>
+                        {{ form_widget(form.file) }}
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                    {{ form_errors(form.file) }}
+                </div>
+            </div>
+            <div class="add_button center-align">
+                <input class="waves-effect waves-light btn" type="submit" value="Ajouter l'album" />
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

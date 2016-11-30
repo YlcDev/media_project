@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Media Project{% endblock %}</title>
+
+        {% block stylesheets %}
+            <!-- Compiled and minified CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" href="{{ asset('bundles/media/css/main.css') }}">
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}" />
+    </head>
+    <body>
+
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{{ path('musique_index') }}" class="brand-logo center">Homepage</a>
+            </div>
+        </nav>
+        {% block body %}{% endblock %}
+
+        {% block javascripts %}
+            {# Call jQuery #}
+            <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+            <!-- Compiled and minified JavaScript -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+            <script src="{{ asset('bundles/media/js/main.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

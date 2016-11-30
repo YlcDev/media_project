@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Album</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ album.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ album.titre }}</td>
+            </tr>
+            <tr>
+                <th>Artiste</th>
+                <td>{{ album.artiste }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ album.genre }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ album.support }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('album_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('album_edit', { 'id': album.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+
+
+    <h3>Commentaires</h3>
+    {% for commentaire in commentaires if album.id == commentaire.albumid.id %}
+        <div class="thumbnail">
+
+            <p>Utilisateur : {{ commentaire.utilisateur }}</p>
+            <p>Support : {{ commentaire.commentaire }}</p>
+        </div>
+
+    {% endfor %}
+
+    <h3>Ajouter un commentaire</h3>
+
+    {{ form_start(newCom) }}
+    {{ form_errors(newCom) }}
+    {{ form_widget(newCom) }}
+    <br>
+    <input type="submit" value="Publier"  class="btn btn-default"/>
+    {{ form_end(newCom) }}
+    <br><br>
+
+
+    <a href="{{ path('album_index') }}" class="btn btn-default">Retour à la liste</a>
+    <a href="{{ path('album_edit', { 'id': album.id }) }}" class="btn btn-default">Modifier</a>
+    <br><br>
+    {{ form_start(delete_form) }}
+    <input type="submit" value="Supprimer" class="btn btn-default mybtn">
+    {{ form_end(delete_form) }}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+MediaBundle\Entity\Avis:
+    type: entity
+    table: null
+    repositoryClass: MediaBundle\Repository\AvisRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        user:
+            type: string
+            length: 255
+        commentaire:
+            type: text
+
+
+    manyToOne:
+        musiques:
+            targetEntity: MediaBundle\Entity\Musique
+            joinColumn:
+                onDelete: CASCADE
+
+    lifecycleCallbacks: {  }

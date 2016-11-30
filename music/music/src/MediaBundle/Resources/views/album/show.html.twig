@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1>Album</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ album.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ album.titre }}</td>
+            </tr>
+            <tr>
+                <th>Artiste</th>
+                <td>{{ album.artiste }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ album.genre }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ album.support }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <tfoot>
+    <p>Commentaires:</p>
+
+    {% for commentaire in commentaires if  commentaire.album.id == album.id %}
+        <br>
+        user: {{ commentaire.utilisateur }}
+        <br>
+        comm: {{ commentaire.commentaire }}
+        <br>
+    {% endfor %}
+    <p>Ajouter un commentaire:</p>
+    {{ form_start(newCom) }}
+
+    {{ form_widget(newCom) }}
+    <input type="submit" value="Ajouter">
+    {{ form_errors(newCom) }}
+    {{ form_end(newCom) }}
+    </tfoot>
+
+    <ul>
+        <li>
+            <a href="{{ path('album_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('album_edit', { 'id': album.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,22 @@
+/*GENERAL*/
+
+img{
+    width: 100%;
+}
+.add_button{
+    margin: 20px 20px;
+}
+/*INDEX*/
+
+.line_img{
+    width: 15% !important;
+}
+
+.table_head{
+    background-color: indianred;
+}
+
+/*SHOW*/
+.card-content span{
+    font-weight: bold;
+}
